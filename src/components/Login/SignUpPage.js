@@ -29,7 +29,7 @@ const SignUp = () => {
             email : enteredEmail,
             password : enteredPassword
         }
-    //
+    
 
         if(enteredEmail.trim().length>0 && enteredPassword.trim().length>0){
             sendRequest({
