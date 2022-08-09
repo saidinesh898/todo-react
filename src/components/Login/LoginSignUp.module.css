@@ -1,0 +1,109 @@
+.loginLayout{
+    margin-top: 5vh;
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+}
+
+.loginWrapper{
+    font-size: 1.2em;
+    border-radius: 5px;
+    width: 40vmin;
+    margin-top: 2vh;
+    padding-bottom: 2vh;
+    text-align: center;
+    box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.11);
+    -webkit-box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.11);
+    -moz-box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.11);
+}
+.branding{
+    color:rgb(0, 82, 204) ;
+}
+.loginWrapper h3{
+    color: rgb(103, 103, 103);
+    font-size: 1em;
+}
+
+.loginInput{
+    width: 76%;
+    height: 30px;
+    margin-bottom: 20px;
+    border: 1px solid rgb(230, 230, 230);
+    background: rgb(246, 246, 246);
+    padding-left: 10px;
+    border-radius: 3px;
+}
+.loginInput:focus{
+    outline: 2px solid rgb(0, 82, 204);
+    background: rgb(255, 255, 255);
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.submitButton{
+    width: 80%;
+    height: 2.5rem;
+    background-color:rgb(0, 82, 204) ;
+    color: white;
+    border: 0;
+    border-radius: 3px;
+    font-weight: 500;
+    font-size: 0.9em;
+}
+.submitButton:hover{
+    background-color:rgb(0, 101, 255);
+    cursor: pointer;
+}
+
+.submitButton:active{
+    background-color:rgb(0, 76, 188);
+    cursor: pointer;
+}
+
+hr.solid {
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    border-top: 1px solid #bbb;
+    width: 80%;
+  }
+
+
+.signup{
+    color :rgb(0, 82, 204);
+    font-size: .8em
+}
+
+
+  @media only screen and (max-width: 600px) {
+    .loginWrapper{
+        border-radius: 5px;
+        width: 80%;
+        margin-top: 2vh;
+        padding-bottom: 2vh;
+        text-align: center;
+        box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.11);
+        -webkit-box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.11);
+        -moz-box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.11);
+    }
+  }
+
+  @media only screen and (max-width: 294px) {
+    .loginWrapper{
+        border-radius: 5px;
+        width: 100%;
+        margin-top: 2vh;
+        padding-bottom: 2vh;
+        text-align: center;
+        box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.11);
+        -webkit-box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.11);
+        -moz-box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.11);
+    }
+    .branding{
+        color:rgb(0, 82, 204) ;
+        font-size: .8em;
+    }
+  }
