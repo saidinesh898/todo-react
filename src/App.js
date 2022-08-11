@@ -9,6 +9,7 @@ import ProtectedList from './routes/ProtectedRouteList';
 import PublicList from './routes/PublicRouteList';
 import Header from './components/UI/Header';
 import PrivateRoute from './routes/PrivateRoute'
+import Loader from './components/UI/Loader';
 
 
 function App() {
@@ -21,10 +22,11 @@ function App() {
 
 
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={ <Loader/> }>
       <header>
         <Header></Header>
       </header>
+     
       <Routes>
       <Route path="/" element={ <Navigate to="/login" />}/>
         {PublicList.map(routes => <Route  key={routes.key} path={routes.path} element={routes.element}></Route>)}
