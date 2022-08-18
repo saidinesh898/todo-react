@@ -63,6 +63,61 @@
 }
 
 .sort{
-    position: relative;
-    left: -30%;
+    display: flex;
+    column-gap: 10px;
 }
+
+
+
+.arrow{
+    width: 25px;
+    transition: 200ms ease-in;
+}
+
+.sortButton{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    background-color: rgb(225, 237, 255);
+    border: 0;
+    border-radius: 5px;
+    font-weight: 600;
+    color : rgb(0, 82, 204);
+   
+
+}
+
+.invertIMG{
+    transform: rotate(180deg);
+}
+
+.hideCompleted{
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 5px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+    background-color: rgb(225, 237, 255);
+    border: 0;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: 600;
+    color : rgb(0, 82, 204);
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+.hideCompleted input{
+    margin: 0;
+}
+.hideCompleted:hover, .hideCompleted input{
+    cursor: pointer;
+}
+
