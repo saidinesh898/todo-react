@@ -1,4 +1,5 @@
 import React from 'react'
+import AddTaskPage from '../components/Tasks/AddTaskPage'
 
 const  Dashboard = React.lazy(() => import('./Dashboard'))
 const  Account = React.lazy(() => import('./Account'))
@@ -25,6 +26,11 @@ const ProtectedList = [{
     path : "/tasks/:taskID",
     element : <Tasks/>,
     key : 4
+},
+{
+    path : "/tasks/new",
+    element : <AddTaskPage/>,
+    key : 5
 },
 ]
 

@@ -6,6 +6,7 @@ import { useRef } from "react";
 import css from './DashBoardIndex.module.css'
 import {Link} from 'react-router-dom'
 import { APIURL } from "../../constants";
+import AddTask from "../Tasks/AddTask";
 
 
 
@@ -94,6 +95,7 @@ const DashboardIndex = () => {
 
 
     return (
+        <>
         <div className={css.dashboardWrapper}>
             <div className={css.sort}>
             <button className={css.sortButton} onClick={sortOnClickHanlder}><p>Sort By Date </p> {arrowSVG}</button>
@@ -106,6 +108,8 @@ const DashboardIndex = () => {
                 {TasksJSX}
             </div>
         </div>
+        <AddTask></AddTask>
+        </>
     );
 };
 
