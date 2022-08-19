@@ -4,10 +4,11 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import css from './TaskEdit.module.css'
 import {APIURL} from '../../constants'
+import { useNavigate } from "react-router-dom";
 
 
 const TaskEdit = () => {
-
+    const navigate = useNavigate()
     const params = useParams();
     const authDetails = useSelector(state => state.auth)
     const [task, setTask] = useState({
@@ -16,9 +17,13 @@ const TaskEdit = () => {
     })
     const [taskStatic, setTaskStatic] = useState({})
     const getResponseData = (data)=> {
-        console.log(data)
         setTask(data)
         setTaskStatic(data)
+    }
+    const getUpdatedResponseData = (data)=> {
+        setTask(data)
+        setTaskStatic(data)
+        navigate("../dashboard", { replace: true });
     }
         const fetchTaskArgument =  {
         url: APIURL+"/tasks/"+params.taskID,
@@ -28,6 +33,11 @@ const TaskEdit = () => {
         }
     }
     const {error, isLoading, sendRequest} = useHttp(getResponseData) 
+    const {errorUpdate, isLoadingUpdate, sendRequest : updateTask} = useHttp(getUpdatedResponseData) 
+    useEffect(()=>{
+        sendRequest(fetchTaskArgument)
+    },[params.taskID,authDetails.token ])
+
     useEffect(()=>{
         sendRequest(fetchTaskArgument)
     },[params.taskID,authDetails.token ])
@@ -63,7 +73,8 @@ const TaskEdit = () => {
                 status : task.status
             }
         }
-        sendRequest(updateTaskArgument)
+        updateTask(updateTaskArgument)
+        
     }
  
     return (

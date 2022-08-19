@@ -12,8 +12,8 @@
 
 
 .taskCard{
-  
-    display: flex;
+    box-sizing: border-box;
+    display: flex ;
     flex-direction: column;
     align-items: center;
     font-size: 1em;
@@ -70,11 +70,14 @@ input:focus, select:focus{
 }
 
 
+
 .actions button{
     cursor: pointer;
     padding: 10px;
     border-radius: 8px;
     transition: 50ms ease-in;
+    font-size: 1rem;
+    border: 0;
 }
 .actions button:hover{
     transform: scale(1.1);
@@ -93,6 +96,10 @@ input:focus, select:focus{
     font-weight: 600;
 }
 
+select option{
+   
+}
+
 @media only screen and (max-width: 970px) {
     .taskCard{
       width: 95%;
@@ -100,21 +107,26 @@ input:focus, select:focus{
       overflow: hidden;
       display: flex;
       flex-wrap: nowrap;
-
     }
     input, select{
-        width: 50vw;
-
-     
+        margin-left:50px ;
+        width: 80%;
         overflow: hidden;
     }
     .taskDescription, .status{
-        width: 100%;
+        display: flex;
+        width: 90%;
         text-align: left;
         margin: 10px;
-        flex-basis: auto;
         flex-wrap: nowrap;
-        flex-shrink: 10%
+        flex-shrink: 1;
       
+    }
+    .taskCard label{
+        width: 40%;
+        font-size: 1rem;
+        text-align: right;
+        margin-right: 0;
+        
     }
   }
