@@ -5,6 +5,7 @@ import {Link} from 'react-router-dom'
 import { useDispatch } from 'react-redux';
 import {authActions} from '../../store/auth-slice'
 import useHttp from '../../hooks/httpRequest'
+import { APIURL } from '../../constants';
 
 
 const Login = () => {
@@ -31,7 +32,7 @@ const Login = () => {
 
         if(enteredEmail.trim().length>0 && enteredPassword.trim().length>0){
             sendRequest({
-                url: "https://todo-app.sinuos.in/users/login",
+                url: APIURL+"/users/login",
                 method: "POST",
                 body : reqBody,
                 headers :  {

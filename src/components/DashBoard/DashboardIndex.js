@@ -5,6 +5,7 @@ import arrow from '../../assests/img/arrow.png'
 import { useRef } from "react";
 import css from './DashBoardIndex.module.css'
 import {Link} from 'react-router-dom'
+import { APIURL } from "../../constants";
 
 
 
@@ -21,7 +22,7 @@ const DashboardIndex = () => {
         sendRequest(fetchTaskArgument)
     }
     const fetchTaskArgument =  {
-        url: "https://todo-app.sinuos.in/tasks/",
+        url: APIURL+"/tasks/",
         method : 'GET',
         headers: {
             "Authorization" : `Bearer ${authDetails.token}` 
@@ -51,7 +52,7 @@ const DashboardIndex = () => {
     const deleteTaskHandler = (e)=>{
         const id = e.currentTarget.id
         const deleteTaskArgument =  {
-            url: 'https://todo-app.sinuos.in/tasks/'+id,
+            url: APIURL+'/tasks/'+id,
             method : 'DELETE',
             headers: {
                 "Authorization" : `Bearer ${authDetails.token}` 

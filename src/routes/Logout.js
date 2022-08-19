@@ -3,7 +3,7 @@ import { useDispatch, useSelector} from "react-redux";
 import { authActions } from "../store/auth-slice";
 import { useEffect } from "react";
 import useHttp from "../hooks/httpRequest";
-
+import { APIURL } from "../constants";
 const Logout = () => {
     const authDetails = useSelector(state=>state.auth)
     const dispatch = useDispatch()
@@ -20,7 +20,7 @@ const Logout = () => {
     useEffect(() => {
 
         sendRequest({
-            url : "https://todo-app.sinuos.in/users/logout",
+            url : APIURL+"/users/logout",
             method : 'POST',
             headers :  {
                 "Authorization" : `Bearer ${authDetails.token}`

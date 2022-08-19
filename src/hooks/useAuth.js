@@ -2,6 +2,7 @@ import {useDispatch} from 'react-redux'
 import { authActions } from '../store/auth-slice';
 import useHttp from './httpRequest'; 
 import {useCallback, useState} from 'react'
+import { APIURL } from '../constants';
 
 
 
@@ -29,7 +30,7 @@ const { sendRequest } = useHttp(dataHandler)
      
     if(authLocalStorage){
       const requestConfig = {
-        url:"https://todo-app.sinuos.in/users/me", 
+        url: APIURL+"/users/me", 
         method : 'GET', 
         headers : {
           "Authorization" : authLocalStorage.token
