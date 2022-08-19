@@ -46,10 +46,17 @@
 
 input, select{
     width: 20rem;
-    height: 40px;
-    font-size: 1rem;
-    border-radius: 10px;
-    border: 1px solid blue;
+    height: 30px;
+    margin-bottom: 20px;
+    border: 1px solid rgb(230, 230, 230);
+    background: rgb(246, 246, 246);
+    padding-left: 10px;
+    border-radius: 3px;
+}
+
+input:focus, select:focus{
+    outline: 2px solid rgb(0, 82, 204);
+    background: rgb(255, 255, 255);
 }
 
 .actions{
@@ -67,7 +74,6 @@ input, select{
     cursor: pointer;
     padding: 10px;
     border-radius: 8px;
-    border: 0;
     transition: 50ms ease-in;
 }
 .actions button:hover{
