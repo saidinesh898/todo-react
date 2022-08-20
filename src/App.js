@@ -10,6 +10,7 @@ import PublicList from './routes/PublicRouteList';
 import Header from './components/UI/Header';
 import PrivateRoute from './routes/PrivateRoute'
 import Loader from './components/UI/Loader';
+import Notification from './components/UI/Notification/Notification';
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
         {PublicList.map(routes => <Route  key={routes.key} path={routes.path} element={routes.element}></Route>)}
         {ProtectedList.map(routes => <Route  key={routes.key} path={routes.path} element={<PrivateRoute>{routes.element}</PrivateRoute>}></Route>)}
       </Routes>
+     
     </Suspense>
   );
 }

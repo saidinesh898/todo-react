@@ -75,7 +75,7 @@ const DashboardIndex = () => {
         return (
         <div key = {task._id} className={css.tasksCard + ' ' + (task.status ? css.success : css.pending)}>
           <div className={css.taskDescription}>
-              <p>Task Description</p> <p>:</p> <p><b>{task.description}</b></p>
+              <p>Task Description</p> <p>:</p> <p className={css.descriptionDynamic}> <b>{task.description}</b></p>
           </div>
           <div className={css.taskStatus}>
           <p>Task Status &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p> <p>:</p> <p><b>{(task.status && "Completed") || (!task.status && "Pending") }</b></p>

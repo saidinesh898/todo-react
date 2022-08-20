@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import css from './AddTask.module.css'
+import addImg from '../../assests/img/add.png'
 
 
 const AddTask = () => {
@@ -9,7 +10,7 @@ const AddTask = () => {
     }
     return (
         <div onClick= {addTaskClickHandler}className={css.addTaskWrapper}>
-            Add New Task
+           <img src={addImg} className={css.addIMG}></img> <p>Add New Task</p>
         </div>
     );
 };

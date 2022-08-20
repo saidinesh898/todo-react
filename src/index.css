@@ -22,3 +22,7 @@ code {
                                 supported by Chrome, Edge, Opera and Firefox */
                                 -webkit-tap-highlight-color: transparent; /* for removing the highlight */
                               }
+html {
+    overflow-y: scroll;
+    
+}

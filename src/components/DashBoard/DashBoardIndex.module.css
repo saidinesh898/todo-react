@@ -98,8 +98,11 @@
 .hideCompleted{
     font-family: Arial, Helvetica, sans-serif;
     padding: 5px;
+    padding-right: 15px;
+    padding-left: 15px;
     text-align: center;
     display: flex;
+    flex-direction: column;
     align-items: center;
     column-gap: 5px;
     background-color: rgb(225, 237, 255);
@@ -116,10 +119,12 @@
             user-select: none; 
 }
 .hideCompleted input{
-    margin: 0;
+    margin-top: -10px;
+    margin-bottom: 0px;
     border: 0px;
-    width: 1.4em;
+    width: 1.5em;
     height: 1.4em;
+
     
 }
 .hideCompleted:hover, .hideCompleted input{
@@ -149,6 +154,8 @@
     border: 0;
     border-radius: 5px;
     transition: 50ms ease-in;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .editTask{
@@ -167,4 +174,8 @@
 }
 .editTask:active , .deleteTask:active {
     transform:  scale(0.9);
+}
+
+.descriptionDynamic{
+    width: 20ch;
 }

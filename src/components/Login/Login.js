@@ -6,13 +6,21 @@ import { useDispatch } from 'react-redux';
 import {authActions} from '../../store/auth-slice'
 import useHttp from '../../hooks/httpRequest'
 import { APIURL } from '../../constants';
+import Notification from '../UI/Notification/Notification';
+import { useState } from 'react';
+
 
 
 const Login = () => {
     const dispatch = useDispatch()
+    const [notification, setNotification ] = useState(null)
     const onLoginHanlder = (response, statusCode) => {
        if(statusCode === 401){
-        alert("Invalid Credentials")
+        setNotification({
+            type : "error",
+            header : "Failed To Login",
+            message : "Invaild Credentials"
+        })
        }
        else{
         dispatch(authActions.onLogin(response))
@@ -68,6 +76,7 @@ const Login = () => {
                 <hr className={css.solid}/>
                 <Link to="../sign-up"> <div className={css.signup}>Sign up for an account</div></Link>
             </div>
+           {notification && <Notification type={notification.type}  header={notification.header} message={notification.message}/> }
         </div>
     );
 };

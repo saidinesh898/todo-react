@@ -73,7 +73,9 @@ input:focus, select:focus{
 
 .actions button{
     cursor: pointer;
-    padding: 10px;
+    padding: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     border-radius: 8px;
     transition: 50ms ease-in;
     font-size: 1rem;

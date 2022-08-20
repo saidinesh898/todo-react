@@ -1,0 +1,96 @@
+.notificationWrapper{
+    position: fixed;
+    bottom: 10vh;
+    left: 3vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 20px;
+    padding: 25px;
+    border-radius: 12px;
+    animation: fade1 300ms ease-in;
+}
+
+.notificationBodyWrapper{
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    min-width: 180px;
+  
+
+}
+.notificationBodyWrapper p{
+    margin: 0;
+
+}
+.notificatioHeader{
+    font-weight: 600;
+    font-size: 0.9em;
+
+}
+.notificationBody{
+    font-size: 0.8em;
+    
+}
+
+.notificationDismiss{
+    justify-self: flex-end
+    
+}
+.notificationDismiss img{
+    width: 15px;
+    opacity: 0.7;
+    border-radius: 500px;
+    padding: 8px;
+    
+}
+
+.notificationDismiss img:hover{
+    background-color: rgb(255, 255, 255);
+}
+
+
+
+.notificatioIcon img{
+    background-color: transparent;
+    width: 35px;
+    
+}
+
+
+.info{
+    background-color: rgb(252, 236, 157);
+
+}
+
+.error{
+    background-color: rgb(254, 207, 207);
+}
+
+.success{
+    background-color: rgb(213, 255, 231)
+}
+
+@keyframes fade1 {
+    0%{
+        transform: translateX(-5px);
+    }
+    25%{
+        transform: translateX(5px);
+    }
+    50%{
+        transform: translateX(-5px);
+    }
+    75%{
+        transform: translateX(5px);
+    
+    }
+    100%{
+        transform: translateX(-5px);
+    }
+}
+
+
+
+
