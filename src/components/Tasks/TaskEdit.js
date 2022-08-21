@@ -18,9 +18,15 @@ const TaskEdit = () => {
         status : false
     })
     const [taskStatic, setTaskStatic] = useState({})
-    const getResponseData = (data)=> {
-        setTask(data)
-        setTaskStatic(data)
+    const getResponseData = (data, statusCode)=> {
+        if(statusCode===200){
+            setTask(data)
+            setTaskStatic(data)
+        }
+        else{
+            navigate("../404", { replace: true });
+        }
+
     }
     const getUpdatedResponseData = (data)=> {
         dispatch(notifyActions.notify({
@@ -42,13 +48,18 @@ const TaskEdit = () => {
     }
     const {error, isLoading, sendRequest} = useHttp(getResponseData) 
     const {errorUpdate, isLoadingUpdate, sendRequest : updateTask} = useHttp(getUpdatedResponseData) 
+    
+    if(error){
+        navigate("../404", { replace: true });
+    }
+    
     useEffect(()=>{
-        sendRequest(fetchTaskArgument)
+        if(authDetails.token){
+            sendRequest(fetchTaskArgument)
+        }
+        
     },[params.taskID,authDetails.token ])
 
-    useEffect(()=>{
-        sendRequest(fetchTaskArgument)
-    },[params.taskID,authDetails.token ])
 
     const taskDescriptionChangeHandler = (e) => {
         setTask(prevState => ({

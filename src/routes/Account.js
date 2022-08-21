@@ -1,7 +1,7 @@
 const Account = ()=>{
 
     return(
-        <p>This is a Account Page</p>
+        <p>Features will be Added Soon, Pinky Promise</p>
     )
 
 }
