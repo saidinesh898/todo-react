@@ -1,5 +1,15 @@
 .notificationGroup{
-    position: absolute;
+    position: fixed;
     bottom: 10vh;
     left: 3vw;
+    margin-right: 40px;
 }
+
+
+@media only screen and (max-width: 600px) {
+    .notificationGroup {
+        left: 0;
+        bottom: 0vh;
+        transform: scale(0.8);
+    }
+    }
