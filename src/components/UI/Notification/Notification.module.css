@@ -1,7 +1,6 @@
+
 .notificationWrapper{
-    position: fixed;
-    bottom: 10vh;
-    left: 3vw;
+    margin: 15px;
     display: flex;
     justify-content: center;
     align-items: center;

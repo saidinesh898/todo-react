@@ -8,7 +8,8 @@ import useHttp from '../../hooks/httpRequest'
 import { APIURL } from '../../constants';
 import Notification from '../UI/Notification/Notification';
 import { useState } from 'react';
-
+import NotificationGroup from '../UI/Notification/NotificationGroup';
+import { notifyActions } from '../../store/notification-slice';
 
 
 const Login = () => {
@@ -16,16 +17,25 @@ const Login = () => {
     const [notification, setNotification ] = useState(null)
     const onLoginHanlder = (response, statusCode) => {
        if(statusCode === 401){
-        setNotification({
+        dispatch(notifyActions.notify({
             type : "error",
             header : "Failed To Login",
-            message : "Invaild Credentials"
-        })
+            message : "Invaild Credentials",
+            timer : 3000
+        }))
        }
        else{
+        console.log("login")
+        dispatch(notifyActions.notify({
+            type : "success",
+            header : "Success",
+            message : "Successfully Logged In",
+            timer : 3000
+        }))
         dispatch(authActions.onLogin(response))
         localStorage.setItem("authDetails", JSON.stringify(response))
-       }
+
+    }
     }
     const {isLoading, error, sendRequest} = useHttp(onLoginHanlder)
     const loginSubmitHandler = (e) => {
@@ -76,7 +86,8 @@ const Login = () => {
                 <hr className={css.solid}/>
                 <Link to="../sign-up"> <div className={css.signup}>Sign up for an account</div></Link>
             </div>
-           {notification && <Notification type={notification.type}  header={notification.header} message={notification.message}/> }
+        
+
         </div>
     );
 };
