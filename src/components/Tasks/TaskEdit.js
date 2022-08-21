@@ -80,19 +80,30 @@ const TaskEdit = () => {
     } 
 
     const updateTaskHandler = () => {
-        const updateTaskArgument =  {
-            url: APIURL+"/tasks/"+params.taskID,
-            method : 'PATCH',
-            headers: {
-                "Authorization" : `Bearer ${authDetails.token}`,
-                "Content-Type" :  "application/json"
-            },
-            body : {
-                description : task.description,
-                status : task.status
+        if(task.description.trim().length > 3 ){
+            const updateTaskArgument =  {
+                url: APIURL+"/tasks/"+params.taskID,
+                method : 'PATCH',
+                headers: {
+                    "Authorization" : `Bearer ${authDetails.token}`,
+                    "Content-Type" :  "application/json"
+                },
+                body : {
+                    description : task.description,
+                    status : task.status
+                }
             }
+            updateTask(updateTaskArgument)
         }
-        updateTask(updateTaskArgument)
+        else{
+            dispatch(notifyActions.notify({
+                type : "error",
+                header : "Error",
+                message : "Description Length Should be Greater than 3 Character",
+                timer : 3000
+            }))
+        }
+
         
     }
  

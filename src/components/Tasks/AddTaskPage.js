@@ -11,7 +11,10 @@ const AddTaskPage = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const authDetails = useSelector(state => state.auth)
-    const [task, setTask] = useState({})
+    const [task, setTask] = useState({
+        description : '',
+        state : undefined
+    })
     
     const cancelHandler = ()=> {
         navigate('../../dashboard', {replace:true})
@@ -58,7 +61,18 @@ const AddTaskPage = () => {
     }
 
     const onAddTaskHandler = () => {
-        sendRequest(addTaskArgument)
+        if(task.description.trim().length > 3){
+            sendRequest(addTaskArgument)
+        }
+        else{
+            dispatch(notifyActions.notify({
+                type : "error",
+                header : "Error",
+                message : "Description Length Should be Greater than 3 Character",
+                timer : 3000
+            }))
+        }
+
     }
     return (
         <div className={css.pageWrapper}>
