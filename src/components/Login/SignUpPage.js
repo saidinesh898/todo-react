@@ -13,7 +13,16 @@ import { APIURL } from '../../constants';
 const SignUp = () => {
     const dispatch = useDispatch()
     const onLoginHanlder = (response, statusCode) => {
-       if(statusCode === 400){
+        console.log(response)
+        if(statusCode === 400 && response.errors){
+        dispatch(notifyActions.notify({
+            type : "error",
+            header : "Validation Error",
+            message : "Entered Password is shorter than the minimum allowed length (7).",
+            timer : 3000
+        }))
+       }
+       else if(statusCode === 400){
         dispatch(notifyActions.notify({
             type : "error",
             header : "Failed to Create an Acount",
