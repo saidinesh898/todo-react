@@ -2,13 +2,11 @@ import Button from '../UI/FormComponents/Button';
 import Input from '../UI/FormComponents/Input';
 import css from './LoginSignUp.module.css'
 import {Link} from 'react-router-dom'
-import { useDispatch } from 'react-redux';
 import {authActions} from '../../store/auth-slice'
 import useHttp from '../../hooks/httpRequest'
 import { APIURL } from '../../constants';
-import Notification from '../UI/Notification/Notification';
 import { useState } from 'react';
-import NotificationGroup from '../UI/Notification/NotificationGroup';
+import { useDispatch } from 'react-redux';
 import { notifyActions } from '../../store/notification-slice';
 
 
@@ -25,7 +23,6 @@ const Login = () => {
         }))
        }
        else{
-        console.log("login")
         dispatch(notifyActions.notify({
             type : "success",
             header : "Success",

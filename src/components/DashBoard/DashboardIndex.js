@@ -7,11 +7,13 @@ import css from './DashBoardIndex.module.css'
 import {Link} from 'react-router-dom'
 import { APIURL } from "../../constants";
 import AddTask from "../Tasks/AddTask";
-
+import { useDispatch } from 'react-redux';
+import { notifyActions } from '../../store/notification-slice';
 
 
 const DashboardIndex = () => {
     const hideToggle = useRef()
+    const dispatch = useDispatch()
     const authDetails = useSelector(state=>state.auth)
     const [sortToggle, setSortToggle] = useState(true)
     const [hideCompletedToggle, setHideCompletedToggle] = useState(false)
@@ -20,6 +22,13 @@ const DashboardIndex = () => {
         setTasks(data)
     }
     const deteledTask = (data, statusCode) => {
+        dispatch(notifyActions.notify({
+            type : "success",
+            header : "Success",
+            message : "Task Deleted Successfully",
+            timer : 3000
+        }))
+
         sendRequest(fetchTaskArgument)
     }
     const fetchTaskArgument =  {

@@ -5,15 +5,29 @@ import {Link} from 'react-router-dom'
 import { useDispatch } from 'react-redux';
 import {authActions} from '../../store/auth-slice'
 import useHttp from '../../hooks/httpRequest'
+import { notifyActions } from '../../store/notification-slice';
+import { APIURL } from '../../constants';
+
 
 
 const SignUp = () => {
     const dispatch = useDispatch()
     const onLoginHanlder = (response, statusCode) => {
        if(statusCode === 400){
-        alert("User Already Exists")
+        dispatch(notifyActions.notify({
+            type : "error",
+            header : "Failed to Create an Acount",
+            message : "Email Already Exists",
+            timer : 3000
+        }))
        }
        else{
+        dispatch(notifyActions.notify({
+            type : "success",
+            header : "Sucess",
+            message : "Successfully Created an Account",
+            timer : 3000
+        }))
         dispatch(authActions.onLogin(response))
         localStorage.setItem("authDetails", JSON.stringify(response))
        }
@@ -32,7 +46,7 @@ const SignUp = () => {
 //
         if(enteredEmail.trim().length>0 && enteredPassword.trim().length>0){
             sendRequest({
-                url: "https://todo-app.sinuos.in/users",
+                url: APIURL+"/users",
                 method: "POST",
                 body : reqBody,
                 headers :  {

@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react";
 import useHttp from '../../hooks/httpRequest'
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import css from './TaskEdit.module.css'
 import {APIURL} from '../../constants'
 import { useNavigate } from "react-router-dom";
+import { notifyActions } from "../../store/notification-slice";
 
 
 const TaskEdit = () => {
     const navigate = useNavigate()
+    const dispatch = useDispatch()
     const params = useParams();
     const authDetails = useSelector(state => state.auth)
     const [task, setTask] = useState({
@@ -21,6 +23,12 @@ const TaskEdit = () => {
         setTaskStatic(data)
     }
     const getUpdatedResponseData = (data)=> {
+        dispatch(notifyActions.notify({
+            type : "success",
+            header : "Success",
+            message : "Task Updated Successfully",
+            timer : 3000
+        }))
         setTask(data)
         setTaskStatic(data)
         navigate("../dashboard", { replace: true });
