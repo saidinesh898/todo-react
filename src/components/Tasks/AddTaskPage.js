@@ -4,8 +4,11 @@ import { useSelector } from 'react-redux';
 import  {useState} from 'react';
 import useHttp from '../../hooks/httpRequest';
 import { APIURL } from '../../constants';
+import { useDispatch } from 'react-redux';
+import { notifyActions } from '../../store/notification-slice';
 
 const AddTaskPage = () => {
+    const dispatch = useDispatch()
     const navigate = useNavigate()
     const authDetails = useSelector(state => state.auth)
     const [task, setTask] = useState({})
@@ -16,6 +19,13 @@ const AddTaskPage = () => {
     
     const getResponseData = (data, statusCode)=> {
         if(statusCode===201){
+            dispatch(notifyActions.notify({
+                type : "success",
+                header : "Task Added",
+                message : "Successfully Added the Task",
+                timer : 3000
+            }))
+    
             navigate('../../dashboard', {replace:true})
         }
     }
