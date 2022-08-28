@@ -10,12 +10,12 @@ const  Tasks = React.lazy(() => import('./Tasks.js'))
 const ProtectedList = [{
     path : "/account",
     element : <Account/>,
-    key : 2
+    key : 1
 },
     {
     path : "/dashboard",
     element : <Dashboard/>,
-    key : 1
+    key : 2
 },
 {
     path : "/logout",
